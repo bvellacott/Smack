@@ -1,0 +1,7 @@
+h1 haloo!
+
+ul
+  each model as |name|
+    li = name
+
+= outlet
