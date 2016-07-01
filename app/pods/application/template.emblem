@@ -1,0 +1,14 @@
+h2#title Smack
+div
+	label name
+	= input value=name
+div
+	label package
+	= input value=pack
+
+button{action "new"} new
+h2 Package explorer
+pack-node namespace=model level=0
+link-to "compilation-unit" | go fast
+outlet "sidebar"
+outlet

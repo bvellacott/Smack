@@ -1,0 +1,62 @@
+@import 'colors';
+
+ul.tree {
+	font-weight: bold;
+	color: $list-txt-color;
+	& *::selection {
+		background: rgba(0,0,0,0);
+	}
+	&>li {
+		margin: 0.25rem;
+		padding-left: 0.75rem;
+		&ul {
+		}
+		&>span.caret {
+			color: $list-caret-color;
+			cursor: pointer;
+		}
+		&.collapsed {
+
+			&>span.caret {
+				display: inline-block;
+		    transform: rotate(-90deg);    
+		    transition: all 0.25s;
+			}
+			&>ul {
+				max-height: 0rem;
+				transition: max-height 0.25s ease-out;
+				overflow: hidden;
+			}
+		}
+		&.expanded {
+			&>span.caret {
+				display: inline-block;
+		    transform: rotate(-0deg);    
+		    transition: all 0.25s;
+			}
+			&>ul {
+				max-height: 10rem;
+				transition: max-height 0.25s ease-in;
+				overflow: hidden;
+			}
+		}
+		&.leaf {
+			&>span.caret {
+				cursor: default;
+			}
+		}
+		&>span {
+			cursor: default;
+			border-radius: 0.25rem;
+			padding: 0.125rem;
+			&:hover {
+				background-color: $list-highlight-color;
+				transition: all 0.25s;
+			}
+			&.item:hover {
+				padding-left: 1rem;
+				transition: all 0.25s ease-in-out;
+			}
+		}
+	}
+}
