@@ -3,6 +3,13 @@ define('general', ['exports', 'ember'], function (exports, _ember) {
 
   var ember = _ember['default'];
 
+  ember.Messaging = {
+  	context: {},
+  	addListener: function(name, eventName, func) {
+
+  	}
+  };
+
 	exports['default'] = {
 
 		toPackageTree: function(units) { 

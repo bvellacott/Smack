@@ -53,9 +53,15 @@ ul.tree {
 				background-color: $list-highlight-color;
 				transition: all 0.25s;
 			}
-			&.item:hover {
-				padding-left: 1rem;
-				transition: all 0.25s ease-in-out;
+			&.item {
+				&:hover {
+					padding-left: 1rem;
+					transition: all 0.25s ease-in-out;
+				}
+				&.selected {
+					background-color: $list-selected-color;
+					transition: all 0.25s;
+				}
 			}
 		}
 	}
