@@ -2,9 +2,12 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default Ember.Component.extend({
-	// setup: Ember.on('init', function() {
-	// 	this.set(parents, );
-	// }),
+	setup: Ember.on('init', function() {
+		if(!this.name )
+			this.set('name', 'tree-menu');
+		if(!this.rootName)
+			this.set('rootName', this.name);
+	}),
 	name: 'newPackage',
 
 	listContext : {},

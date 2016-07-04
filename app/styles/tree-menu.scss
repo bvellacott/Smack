@@ -54,6 +54,7 @@ ul.tree {
 				transition: all 0.25s;
 			}
 			&.item {
+				transition: all 0.25s;
 				&:hover {
 					padding-left: 1rem;
 					transition: all 0.25s ease-in-out;

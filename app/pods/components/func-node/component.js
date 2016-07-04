@@ -2,16 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-
 	tagName: 'li',
 	classNames: [ 'leaf' ],
 	unit: { name: 'moi!' },
 
-	rootName: 'something',
-	parentPath: null,
-	treePath : Ember.computed('parentPath', 'name', function() {
-    return (this.parentPath ? this.parentPath + '.' : '') + this.name;
-  }),
 	selected : Ember.computed('selectedId', function() {
     return this.selectedId && this.selectedId === this.elementId;
   }),

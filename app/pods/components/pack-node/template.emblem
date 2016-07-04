@@ -1,6 +1,6 @@
 each-in namespace as |name object|
 	if (is-model object)
-		func-node name=name unit=object listContext=listContext parentPath=treePath
+		func-node name=name unit=object rootName=rootName
 	else
-		pack-tree-item name=name object=object listContext=listContext parentPath=treePath
+		pack-tree-item name=name object=object rootName=rootName
 
