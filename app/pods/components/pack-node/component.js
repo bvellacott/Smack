@@ -10,12 +10,6 @@ export default Ember.Component.extend({
 	}),
 	name: 'newPackage',
 
-	listContext : {},
-	parentPath: null,
-	treePath : Ember.computed('parentPath', 'name', function() {
-    return (this.parentPath ? this.parentPath + '.' : '') + this.name;
-  }),
-
   tagName: 'ul',
   classNames: [ 'tree' ],
 	selected : Ember.computed('selectedPath', 'treePath', function() {

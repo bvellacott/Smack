@@ -1,0 +1,25 @@
+
+%txt-button {
+	cursor: pointer;
+	border-radius: 0.125rem;
+	padding: 0.125rem;
+	text-align: center;
+	vertical-align: baseline;
+	font-size: 1.25rem;
+	&.active {
+		transition: all 0.25s ease-in-out;
+		&:hover {
+			background-color: $list-highlight-color;
+			transition: all 0.25s ease-in-out;
+		}
+	}
+	&>a {
+		cursor: inherit;
+		vertical-align: inherit;
+	}
+}
+
+span.txt-button {
+	@extend %txt-button;
+}
+

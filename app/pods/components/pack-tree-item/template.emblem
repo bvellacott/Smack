@@ -1,3 +1,3 @@
-span.caret click="'toggleExpand' bubbles=false" ▼
+span.caret.active click="'toggleExpand' bubbles=false" ▼
 span.item = name
 pack-node name=name namespace=object rootName=rootName

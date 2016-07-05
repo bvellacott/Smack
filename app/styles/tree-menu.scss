@@ -1,5 +1,21 @@
 @import 'colors';
 
+%tree-menu-txt-button {
+	@extend %txt-button;
+	&.item {
+		font-size: 1rem;
+	}
+}
+
+%tree-menu-caret-button {
+	@extend %tree-menu-txt-button;
+	font-size: 1rem;
+	display: inline-block;
+	transition: all 0.25s;
+	color: $list-caret-color;
+	cursor: pointer;
+}
+
 ul.tree {
 	font-weight: bold;
 	color: $list-txt-color;
@@ -12,15 +28,13 @@ ul.tree {
 		&ul {
 		}
 		&>span.caret {
-			color: $list-caret-color;
-			cursor: pointer;
+			@extend %tree-menu-caret-button;
 		}
 		&.collapsed {
 
 			&>span.caret {
-				display: inline-block;
+			  @extend %tree-menu-caret-button;
 		    transform: rotate(-90deg);    
-		    transition: all 0.25s;
 			}
 			&>ul {
 				max-height: 0rem;
@@ -30,9 +44,8 @@ ul.tree {
 		}
 		&.expanded {
 			&>span.caret {
-				display: inline-block;
+			  @extend %tree-menu-caret-button;
 		    transform: rotate(-0deg);    
-		    transition: all 0.25s;
 			}
 			&>ul {
 				max-height: 10rem;
@@ -46,24 +59,7 @@ ul.tree {
 			}
 		}
 		&>span {
-			cursor: default;
-			border-radius: 0.25rem;
-			padding: 0.125rem;
-			&:hover {
-				background-color: $list-highlight-color;
-				transition: all 0.25s;
-			}
-			&.item {
-				transition: all 0.25s;
-				&:hover {
-					padding-left: 1rem;
-					transition: all 0.25s ease-in-out;
-				}
-				&.selected {
-					background-color: $list-selected-color;
-					transition: all 0.25s;
-				}
-			}
+			 @extend %tree-menu-txt-button;
 		}
 	}
 }
