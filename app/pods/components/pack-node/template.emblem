@@ -1,6 +1,5 @@
-each-in namespace as |name object|
-	if (is-model object)
-		func-node name=name unit=object rootName=rootName
-	else
-		pack-tree-item name=name object=object rootName=rootName
+each pack.packs as |childPack|
+	pack-tree-item name=childPack.name object=childPack rootName=rootName
+each pack.funcs as |childFunc|
+	func-node name=childFunc.name unit=childFunc rootName=rootName
 

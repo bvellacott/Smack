@@ -1,4 +1,4 @@
 span.caret ℱ
-span.item.active class={selected:selected} click="select" compilation unit : {{name}}
+span.item.active class={selected:selected} click="select" compilation unit : {{unit.name}}
 txt-button 
 	| moido

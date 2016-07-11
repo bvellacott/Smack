@@ -8,7 +8,7 @@ div
 
 button{action "new"} new
 h2 Package explorer
-pack-node namespace=model name="package-explorer"
+pack-node pack=model name="package-explorer"
 link-to "compilation-unit" | go fast
 outlet "sidebar"
 outlet

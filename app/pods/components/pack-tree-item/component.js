@@ -15,6 +15,9 @@ export default Ember.Component.extend({
   	toggleSelected(path) {
 	  	if(this.name === this.get('treePath'))
 	  		this.set('selectedPath', path);
+  	},
+  	newFunction() {
+  		
   	}
   },
  });

@@ -37,7 +37,7 @@ define('general', ['exports', 'ember'], function (exports, _ember) {
 	exports['default'] = {
 
 		toPackageTree: function(units) { 
-			var tree = {};
+			var tree = { funcs: [], packs: [] };
 			var ctx = this;
 			units.forEach(function(unit){ctx.addToTree(unit, tree)});
 			return tree;
@@ -46,13 +46,28 @@ define('general', ['exports', 'ember'], function (exports, _ember) {
 			var packs = unit.get('pack').split('.');
 			var cur = tree;
 			for(var i = 0; i < packs.length; i++) {
-				if(!cur[packs[i]])
-					cur[packs[i]] = {};
-				cur = cur[packs[i]];
+				var pack = this.getPack(cur, packs[i]);
+				if(!pack) {
+					pack = { name: packs[i], type: 'pack', path: packs.slice(0, i+1).join('.'), funcs: [], packs: [] };
+					cur.packs.push(pack);
+				}
+				cur = pack;
 			}
-			cur[unit.get('name')] = unit;
+			this.removeFunc(cur, unit.get('name'));
+			cur.funcs.push(unit);
 		},
-
+		getPack: function(tree, packName) {
+			for(var i = 0; i < tree.packs.length; i++)
+				if(tree.packs[i].name === packName)
+					return tree.packs[i];
+			return null;
+		},
+		removeFunc: function(tree, funcName) {
+			for(var i = 0; i < tree.funcs.length; i++)
+				if(tree.funcs[i].name === funcName)
+					return tree.funcs.splice(i, 1);
+			return null;
+		}
 
 	// 	toPackageTree: function(units) {
 	// 		var tree = ember.Object.create();

@@ -12,9 +12,9 @@ export default Ember.Component.extend({
 
   tagName: 'ul',
   classNames: [ 'tree' ],
-	selected : Ember.computed('selectedPath', 'treePath', function() {
-    return this.selectedPath && this.selectedPath === this.treePath;
-  }),
+	// selected : Ember.computed('selectedPath', 'treePath', function() {
+ //    return this.selectedPath && this.selectedPath === this.treePath;
+ //  }),
   actions: {
   	toggleSelected(path) {
 	  	if(this.name === this.get('treePath'))
