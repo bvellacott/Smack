@@ -59,7 +59,13 @@ ul.tree {
 			}
 		}
 		&>span {
-			 @extend %tree-menu-txt-button;
+			@extend %tree-menu-txt-button;
+			&.selected {
+				background-color: $list-selected-color;
+				&:hover {
+					background-color: $list-selected-color;
+				}
+			}
 		}
 	}
 }

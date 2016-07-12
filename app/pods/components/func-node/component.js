@@ -6,22 +6,25 @@ export default Ember.Component.extend({
 	classNames: [ 'leaf' ],
 	unit: { name: 'moi!' },
 
-	selected : Ember.computed('selectedId', function() {
+  selected : Ember.computed('selectedId', function() {
     return this.selectedId && this.selectedId === this.elementId;
+  }),
+  path : Ember.computed('unit.pack', 'unit.name', function() {
+    return this.unit.get('pack') + '.' + this.unit.get('name');
   }),
   actions: {
   	select() {
-	  	Ember.Messaging.notify(this.rootName + '.item.select', this.elementId);
+	  	Ember.Messaging.notify('package-explorer.item.select', this.elementId);
   	}
   },
   init() {
     this._super(...arguments);
-    Ember.Messaging.setListener(this, this.rootName + '.item.select', function(elementId){
+    Ember.Messaging.setListener(this, 'package-explorer.item.select', function(elementId){
     	this.set('selectedId', elementId);
     });
   },
 	willDestroyElement() {
 	  this._super(...arguments);
-    Ember.Messaging.removeListener(this, this.rootName + '.item.select');
+    Ember.Messaging.removeListener(this, 'package-explorer.item.select');
 	}
 });
