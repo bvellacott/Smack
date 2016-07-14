@@ -1,7 +1,7 @@
 span.caret ℱ
 span.item.active class={selected:selected} click="select" {{unit.name}}
 span.txt-button.active click="toggleMenu" ○
-list-menu expanded=expanded
+ul.list-menu class={expanded:expanded:collapsed}
 	li 
 		span.active delete ❌
 
