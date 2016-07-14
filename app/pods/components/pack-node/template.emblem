@@ -1,5 +1,5 @@
 each pack.packs as |childPack|
-	pack-tree-item name=childPack.name object=childPack rootName=rootName
+	pack-tree-item object=childPack rootName=rootName
 each pack.funcs as |childFunc|
-	func-node name=childFunc.name unit=childFunc rootName=rootName
+	func-node unit=childFunc rootName=rootName
 

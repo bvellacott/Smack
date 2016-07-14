@@ -1,4 +1,7 @@
 span.caret ℱ
-span.item.active class={selected:selected} click="select" compilation unit : {{unit.name}}
-txt-button 
-	| moido
+span.item.active class={selected:selected} click="select" {{unit.name}}
+span.txt-button.active click="toggleMenu" ○
+list-menu expanded=expanded
+	li 
+		span.active delete ❌
+

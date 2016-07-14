@@ -12,10 +12,14 @@ export default Ember.Component.extend({
   path : Ember.computed('unit.pack', 'unit.name', function() {
     return this.unit.get('pack') + '.' + this.unit.get('name');
   }),
+  expanded: false,
   actions: {
   	select() {
 	  	Ember.Messaging.notify('package-explorer.item.select', this.elementId);
-  	}
+  	},
+    toggleMenu() {
+      this.set('expanded', !this.expanded);
+    }
   },
   init() {
     this._super(...arguments);

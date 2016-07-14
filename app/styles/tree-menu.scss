@@ -19,6 +19,7 @@
 ul.tree {
 	font-weight: bold;
 	color: $list-txt-color;
+	overflow: hidden;
 	& *::selection {
 		background: rgba(0,0,0,0);
 	}
@@ -39,7 +40,6 @@ ul.tree {
 			&>ul {
 				max-height: 0rem;
 				transition: max-height 0.25s ease-out;
-				overflow: hidden;
 			}
 		}
 		&.expanded {
@@ -50,7 +50,6 @@ ul.tree {
 			&>ul {
 				max-height: 10rem;
 				transition: max-height 0.25s ease-in;
-				overflow: hidden;
 			}
 		}
 		&.leaf {

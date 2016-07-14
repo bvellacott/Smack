@@ -1,0 +1,45 @@
+@import 'colors';
+
+%list-menu-txt-button {
+	@extend %txt-button;
+	&.item {
+		font-size: 1rem;
+	}
+	color: $list-caret-color;
+}
+
+%list-menu-caret-button {
+	@extend %list-menu-txt-button;
+	font-size: 1rem;
+	display: inline-block;
+	transition: all 0.25s;
+	color: $list-caret-color;
+	// cursor: pointer;
+}
+
+ul.list-menu {
+	font-weight: bold;
+	color: $list-txt-color;
+	overflow: hidden;
+	& *::selection {
+		background: rgba(0,0,0,0);
+	}
+	&>li {
+		margin: 0.25rem;
+		padding-left: 0.75rem;
+		&>span.caret {
+			@extend %list-menu-caret-button;
+		}
+		&>span {
+			@extend %list-menu-txt-button;
+		}
+	}
+	&.collapsed {
+		max-height: 0rem;
+		transition: max-height 0.25s ease-out;
+	}
+	&.expanded {
+		max-height: 10rem;
+		transition: max-height 0.25s ease-in;
+	}
+}

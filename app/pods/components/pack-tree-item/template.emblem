@@ -1,3 +1,4 @@
 span.caret.active click="'toggleExpand' bubbles=false" ▼
-span.item.active click="'newFunction' bubbles=false" = object.name
+span.item.active click="'newFunction' bubbles=false" {{object.name}} 
+txt-button | ○
 pack-node pack=object rootName=rootName

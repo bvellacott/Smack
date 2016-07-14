@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: [],
   tagName: 'li',
-  classNameBindings: [ 'expanded:expanded:collapsed'/*, 'isLeaf:leaf'*/ ],
+  classNameBindings: [ 'expanded:expanded:collapsed' ],
 
   expanded: true,
   object: {},

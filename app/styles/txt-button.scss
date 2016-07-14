@@ -2,10 +2,16 @@
 %txt-button {
 	cursor: pointer;
 	border-radius: 0.125rem;
+	letter-spacing: -1px;
 	padding: 0.125rem;
 	text-align: center;
 	vertical-align: baseline;
-	font-size: 1.25rem;
+	&.small {
+		font-size: 0.85rem;
+	}
+	&.large {
+		font-size: 1.25rem;
+	}
 	&.active {
 		transition: all 0.25s ease-in-out;
 		&:hover {
