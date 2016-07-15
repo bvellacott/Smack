@@ -1,4 +1,7 @@
-span.caret.active click="'toggleExpand' bubbles=false" ▼
+span.button.ico.active.caret click="'toggleExpand' bubbles=false" ▼
 span.item.active click="'newFunction' bubbles=false" {{object.name}} 
-txt-button | ○
+span.button.ico.active click="toggleMenu" ≡
+ul.list-menu class={menuExpand:expanded:collapsed} 
+	li 
+		span.button.active delete ❌ 
 pack-node pack=object rootName=rootName

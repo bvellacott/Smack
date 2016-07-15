@@ -1,20 +1,14 @@
 @import 'colors';
 
 %list-menu-txt-button {
-	@extend %txt-button;
-	&.item {
-		font-size: 1rem;
-	}
+	@extend %button;
+	@extend %button.small;
 	color: $list-caret-color;
 }
 
 %list-menu-caret-button {
 	@extend %list-menu-txt-button;
-	font-size: 1rem;
-	display: inline-block;
-	transition: all 0.25s;
-	color: $list-caret-color;
-	// cursor: pointer;
+	@extend %button.ico;
 }
 
 ul.list-menu {
@@ -25,8 +19,7 @@ ul.list-menu {
 		background: rgba(0,0,0,0);
 	}
 	&>li {
-		margin: 0.25rem;
-		padding-left: 0.75rem;
+		margin-left: 1.25rem;
 		&>span.caret {
 			@extend %list-menu-caret-button;
 		}

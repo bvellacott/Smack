@@ -1,7 +1,7 @@
 @import 'colors';
 
 %tree-menu-txt-button {
-	@extend %txt-button;
+	@extend %button;
 	&.item {
 		font-size: 1rem;
 	}
@@ -12,7 +12,6 @@
 	font-size: 1rem;
 	display: inline-block;
 	transition: all 0.25s;
-	color: $list-caret-color;
 	cursor: pointer;
 }
 
@@ -24,30 +23,28 @@ ul.tree {
 		background: rgba(0,0,0,0);
 	}
 	&>li {
-		margin: 0.25rem;
+		// margin: 0.25rem;
 		padding-left: 0.75rem;
-		&ul {
-		}
 		&>span.caret {
 			@extend %tree-menu-caret-button;
 		}
 		&.collapsed {
 
 			&>span.caret {
-			  @extend %tree-menu-caret-button;
+			  // @extend %tree-menu-caret-button;
 		    transform: rotate(-90deg);    
 			}
-			&>ul {
+			&>ul.tree {
 				max-height: 0rem;
 				transition: max-height 0.25s ease-out;
 			}
 		}
 		&.expanded {
 			&>span.caret {
-			  @extend %tree-menu-caret-button;
+			  // @extend %tree-menu-caret-button;
 		    transform: rotate(-0deg);    
 			}
-			&>ul {
+			&>ul.tree {
 				max-height: 20rem;
 				transition: max-height 0.25s ease-in;
 			}

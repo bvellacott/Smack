@@ -1,6 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  setup: Ember.on('init', function() {
+    Ember.Messaging.setListener(this, 'package-explorer.item.select', function(elementId){
+      this.set('selectedId', elementId);
+    });
+    Ember.Messaging.setListener(this, 'package-explorer.menu.toggleExpand', function(elementId){
+      if(elementId === this.elementId)
+        this.set('menuExpand', !this.menuExpand);
+      else
+        this.set('menuExpand', false);
+    });
+    Ember.Messaging.setListener(this, 'package-explorer.pack.toggleExpand', function(elementId){
+      this.set('menuExpand', false);
+    });
+  }),
+  teardown: Ember.on('willDestroyElement', function() {
+    Ember.Messaging.removeListener(this, 'package-explorer.item.select');
+    Ember.Messaging.removeListener(this, 'package-explorer.menu.toggleExpand');
+    Ember.Messaging.removeListener(this, 'package-explorer.pack.toggleExpand');
+  }),
 
 	tagName: 'li',
 	classNames: [ 'leaf' ],
@@ -12,23 +31,16 @@ export default Ember.Component.extend({
   path : Ember.computed('unit.pack', 'unit.name', function() {
     return this.unit.get('pack') + '.' + this.unit.get('name');
   }),
-  expanded: false,
+  menuExpand: false,
   actions: {
   	select() {
 	  	Ember.Messaging.notify('package-explorer.item.select', this.elementId);
   	},
     toggleMenu() {
-      this.set('expanded', !this.expanded);
+      Ember.Messaging.notify('package-explorer.menu.toggleExpand', this.elementId);
     }
   },
-  init() {
-    this._super(...arguments);
-    Ember.Messaging.setListener(this, 'package-explorer.item.select', function(elementId){
-    	this.set('selectedId', elementId);
-    });
-  },
-	willDestroyElement() {
-	  this._super(...arguments);
-    Ember.Messaging.removeListener(this, 'package-explorer.item.select');
-	}
+  // init() {
+  //   this._super(...arguments);
+  // },
 });
