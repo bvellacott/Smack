@@ -1,38 +1,64 @@
 @import 'colors';
-
-%list-menu-txt-button {
-	@extend %button;
-	@extend %button.small;
-	color: $list-caret-color;
-}
-
-%list-menu-caret-button {
-	@extend %list-menu-txt-button;
-	@extend %button.ico;
-}
+@import 'txt-button';
 
 ul.list-menu {
+	transform-origin: left;
+	white-space: nowrap;
+	position:relative;
+	vertical-align: baseline;
 	font-weight: bold;
 	color: $list-txt-color;
 	overflow: hidden;
+	margin-left: auto;
 	& *::selection {
 		background: rgba(0,0,0,0);
 	}
 	&>li {
-		margin-left: 1.25rem;
+		//
+		// margin-left: 1.25rem;
 		&>span.caret {
-			@extend %list-menu-caret-button;
+			@extend %outlined-button;
 		}
 		&>span {
-			@extend %list-menu-txt-button;
+			@extend %outlined-button;
 		}
 	}
 	&.collapsed {
-		max-height: 0rem;
-		transition: max-height 0.25s ease-out;
+		transition: all 0.125s ease-out;
 	}
 	&.expanded {
-		max-height: 10rem;
-		transition: max-height 0.25s ease-in;
+		transition: all 0.125s ease-in;
+	}
+	&.vertical {
+		position:relative;
+		&.collapsed {
+			&>li {
+				max-height: 0rem;
+				transition: all 0.125s ease-out;
+			}
+		}
+		&.expanded {
+			&>li {
+				max-height: 5rem;
+				transition: all 0.125s ease-in;
+			}
+		}
+	}
+	&.horizontal {
+		display: inline-block;
+		position:absolute;
+		&>li {
+			display: inline-block;
+		}
+		&.collapsed {
+			max-width: 0rem;
+			transform: scaleX(0);
+			transform-origin: left;
+			transform: translateX(-10rem);
+			opacity: 0;
+		}
+		&.expanded {
+			max-width: 20rem;
+		}
 	}
 }

@@ -21,6 +21,8 @@ export default Ember.Component.extend({
     Ember.Messaging.removeListener(this, 'package-explorer.pack.toggleExpand');
   }),
 
+  store: Ember.inject.service(),
+
 	tagName: 'li',
 	classNames: [ 'leaf' ],
 	unit: { name: 'moi!' },
@@ -38,9 +40,13 @@ export default Ember.Component.extend({
   	},
     toggleMenu() {
       Ember.Messaging.notify('package-explorer.menu.toggleExpand', this.elementId);
+    },
+    save() {
+      this.unit.set('source', 'func ' + this.unit.get('name') + '(){}');
+      this.unit.save();
+    },
+    delete() {
+      this.unit.destroyRecord();
     }
   },
-  // init() {
-  //   this._super(...arguments);
-  // },
 });

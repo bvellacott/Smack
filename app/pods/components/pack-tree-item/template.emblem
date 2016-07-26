@@ -1,7 +1,29 @@
-span.button.ico.active.caret click="'toggleExpand' bubbles=false" ▼
-span.item.active click="'newFunction' bubbles=false" {{object.name}} 
-span.button.ico.active click="toggleMenu" ≡
-ul.list-menu class={menuExpand:expanded:collapsed} 
-	li 
-		span.button.active delete ❌ 
-pack-node pack=object rootName=rootName
+if object.children
+	span.button.ico.active.caret click="'toggleExpand' bubbles=false" ▼
+else if object.units
+	span.button.ico.active.caret click="'toggleExpand' bubbles=false" ▼
+else
+	span.button.ico style="opacity:0" ■
+if object.isNew
+	span.button.ico ⛀
+	= input value=object.name
+	span.outlined-button.ico.active click="'save' bubbles=false" ✔
+	span.outlined-button.ico.active click="'delete' bubbles=false" ✘
+else
+	span.item.active ⛀ {{object.name}}
+	span.button.ico.active click="toggleMenu" ≡
+	ul.list-menu.horizontal class={menuExpand:expanded:collapsed}
+		li
+			span.button.ico.active title="new function" click="'newFunc' bubbles=false" ℱ
+		li
+			span.button.ico.active title="new package" click="'newPack' bubbles=false" ⛀
+		li
+			span.button.ico.active title="delete package" click="'delete' bubbles=false" ✘
+		/ ❌  ☀ ✦ ■ ■ ▢ ❒ ▢ ✘ ✱ ⛀ Ⓟ ⧠
+
+ul.tree
+	each object.children as |pack|
+		pack-tree-item object=pack
+	each object.units as |unit|
+		func-node unit=unit
+/ pack-node packs=object. rootName=rootName

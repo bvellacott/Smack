@@ -23,6 +23,8 @@ export default Ember.Component.extend({
     Ember.Messaging.removeListener(this, 'package-explorer.item.select');
   }),
 
+  store: Ember.inject.service(),
+
   classNames: [],
   tagName: 'li',
   classNameBindings: [ 'expanded:expanded:collapsed' ],
@@ -43,8 +45,20 @@ export default Ember.Component.extend({
     toggleMenu() {
       Ember.Messaging.notify('package-explorer.menu.toggleExpand', this.elementId);
     },
-  	newFunction() {
-  		
+    newPack() {
+      var newPack = this.get('store').createRecord('package', { name: "new", parent: this.object });
+      this.object.get('children').pushObject(newPack);
+    },
+    newFunc() {
+      var newFunc = this.get('store').createRecord('compilation-unit', { name: "new", pack: this.object });
+      this.object.get('units').pushObject(newFunc);
+    },
+    save() {
+      this.object.save();
+    },
+  	delete() {
+  		this.object.destroyRecord();
+      // this.get('store').unloadAll();
   	}
   },
  });

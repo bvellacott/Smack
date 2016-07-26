@@ -1,8 +1,13 @@
-span.button.ico.caret ℱ
-span.item.active class={selected:selected} click="select" {{unit.name}}
-span.button.ico.active click="toggleMenu" ≡
-/ ○ … ≔ ≐ ∶ ☰
-ul.list-menu class={menuExpand:expanded:collapsed} 
-	li 
-		span.active delete ❌ 
-
+span.button.ico style="opacity:0" ■
+if unit.isNew
+	span.button.ico ℱ
+	= input value=unit.name
+	span.outlined-button.ico.active click="'save' bubbles=false" ✔
+	span.outlined-button.ico.active click="'delete' bubbles=false" ✘
+else
+	span.item.active class={selected:selected} click="select" ℱ {{unit.name}}
+	span.button.ico.active click="toggleMenu" ≡
+	/ ○ … ≔ ≐ ∶ ☰
+	ul.list-menu.horizontal class={menuExpand:expanded:collapsed}
+		li
+			span.button.active click="delete" ✘

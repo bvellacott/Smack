@@ -1,14 +1,16 @@
 h2#title Smack
-div
-	label name
-	= input value=name
+/ div
+/ 	label name
+/ 	= input value=name
 div
 	label package
 	= input value=pack
 
-button{action "new"} new
+button{action "newPack"} new package
 h2 Package explorer
-pack-node pack=model name="package-explorer"
+ul.tree
+	each model as |pack|
+		pack-tree-item object=pack rootName="package-explorer"
 link-to "compilation-unit" | go fast
 outlet "sidebar"
 outlet
