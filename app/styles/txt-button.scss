@@ -23,7 +23,7 @@
 		height: 1.5rem;
 		&.ico { width: 1.5rem; }
 	}
-	&.active {
+	&.active-btn {
 		transition: all 0.25s ease-in-out;
 		&:hover {
 			background-color: $list-highlight-color;

@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   // this.route('index', { path: '/' });
-  this.route('compilation-unit');
+  this.route('compilation-unit', { path:'/unit/:compilation-unit_id'});
 });
 
 export default Router;

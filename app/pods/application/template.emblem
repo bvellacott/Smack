@@ -11,6 +11,5 @@ h2 Package explorer
 ul.tree
 	each model as |pack|
 		pack-tree-item object=pack rootName="package-explorer"
-link-to "compilation-unit" | go fast
 outlet "sidebar"
 outlet

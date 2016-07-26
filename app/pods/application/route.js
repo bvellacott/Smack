@@ -28,5 +28,12 @@ export default Ember.Route.extend({
 		refresh() {
 			this.refresh();
 		}
-	}
+	},
+	init() {
+		this._super(...arguments);
+    Ember.Messaging.setListener(this, 'reset', function(elementId){
+      this.transitionTo('index');
+			this.refresh();
+    });
+  },
 });

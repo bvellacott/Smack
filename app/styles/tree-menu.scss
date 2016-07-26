@@ -32,7 +32,7 @@ ul.tree {
 
 			&>span.caret {
 			  // @extend %tree-menu-caret-button;
-		    transform: rotate(-90deg);    
+		    transform: rotate(-90deg);
 			}
 			&>ul.tree {
 				max-height: 0rem;
@@ -42,7 +42,7 @@ ul.tree {
 		&.expanded {
 			&>span.caret {
 			  // @extend %tree-menu-caret-button;
-		    transform: rotate(-0deg);    
+		    transform: rotate(-0deg);
 			}
 			&>ul.tree {
 				max-height: 20rem;
@@ -56,7 +56,7 @@ ul.tree {
 		}
 		&>span {
 			@extend %tree-menu-txt-button;
-			&.selected {
+			&.active {
 				background-color: $list-selected-color;
 				&:hover {
 					background-color: $list-selected-color;

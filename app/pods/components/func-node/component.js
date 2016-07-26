@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   setup: Ember.on('init', function() {
     Ember.Messaging.setListener(this, 'package-explorer.item.select', function(elementId){
       this.set('selectedId', elementId);
+      this.set('menuExpand', false);
     });
     Ember.Messaging.setListener(this, 'package-explorer.menu.toggleExpand', function(elementId){
       if(elementId === this.elementId)
