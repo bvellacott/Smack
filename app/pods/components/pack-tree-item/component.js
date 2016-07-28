@@ -36,8 +36,12 @@ export default Ember.Component.extend({
       this.object.save();
     },
   	delete() {
-      this.object.destroyRecord();
-      Ember.Messaging.notify('reset');
+      this.object.deleteRecord();
+      if(this.object.get('isNew'))
+        return;
+      this.object.save().then(() => {
+        Ember.Messaging.notify('reset');
+      });
       // this.get('store').unloadAll();
       // this.transitionToRoute('index');
   	}

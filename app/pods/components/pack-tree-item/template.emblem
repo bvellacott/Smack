@@ -10,7 +10,7 @@ if object.isNew
 	span.outlined-button.ico.active-btn click="'save' bubbles=false" ✔
 	span.outlined-button.ico.active-btn click="'delete' bubbles=false" ✘
 else
-	span.item.active-btn ⛀ {{object.name}}
+	span.item-btn ⛀ {{object.name}}
 	span.button.ico.active-btn click="toggleMenu" ≡
 	ul.list-menu.horizontal class={menuExpand:expanded:collapsed}
 		li

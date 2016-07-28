@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('pack-node', 'Integration | Component | pack node', {
+moduleForComponent('package-explorer', 'Integration | Component | package explorer', {
   integration: true
 });
 
@@ -9,15 +9,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{pack-node}}`);
+  this.render(hbs`{{package-explorer}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#pack-node}}
+    {{#package-explorer}}
       template block text
-    {{/pack-node}}
+    {{/package-explorer}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

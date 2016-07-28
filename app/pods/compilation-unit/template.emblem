@@ -1,4 +1,1 @@
-h2 Compilation unit
-
-label for="1" = model.name
 p#1 = model.source

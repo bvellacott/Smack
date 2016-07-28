@@ -6,11 +6,12 @@ export default Ember.Route.extend({
 	model() {
 		// return this.store.findAll('package').then(packs => {
 		// 	// return packs;
+		// 	return packs.filter(pack => { return pack.get('parent').then(parent => { return !parent; }) });
 		// });
-		return this.store.query('package', 'where parent = null');
-		// .then(packs => {
-		// 	return packs;
-		// });
+		return this.store.query('package', 'where parent = null').then(
+			packs => { return packs.filter(p => { return true; }); },
+			err => { Ember.Messaging.notify('error', err); }
+		);
 		// var model = this.store.query('package', 'where parent = null');
 		// var model = this.store.findRecord('package', '49p53');
 		// var model = this.store.findAll('package');
@@ -31,8 +32,11 @@ export default Ember.Route.extend({
 	},
 	init() {
 		this._super(...arguments);
-    Ember.Messaging.setListener(this, 'reset', function(elementId){
+		Ember.Messaging.setListener(this, 'reset', () => {
       this.transitionTo('index');
+			this.refresh();
+    });
+		Ember.Messaging.setListener(this, 'refresh', () => {
 			this.refresh();
     });
   },

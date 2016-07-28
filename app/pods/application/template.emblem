@@ -1,15 +1,3 @@
-h2#title Smack
-/ div
-/ 	label name
-/ 	= input value=name
-div
-	label package
-	= input value=pack
-
-button{action "newPack"} new package
-h2 Package explorer
-ul.tree
-	each model as |pack|
-		pack-tree-item object=pack rootName="package-explorer"
+package-explorer packs=model
 outlet "sidebar"
 outlet

@@ -1,4 +1,0 @@
-each packs as |childPack|
-	pack-tree-item object=childPack rootName=rootName
-/ each pack.funcs as |childFunc|
-/ 	func-node unit=childFunc rootName=rootName

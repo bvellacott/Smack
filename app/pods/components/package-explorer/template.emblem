@@ -1,0 +1,5 @@
+button{action "newPack"} new
+ul.tree
+	each packs as |pack|
+		pack-tree-item object=pack rootName="package-explorer"
+= yield
