@@ -1,3 +1,5 @@
-package-explorer packs=model
-outlet "sidebar"
-outlet
+left-sidebar
+  package-explorer packs=model
+  outlet "sidebar"
+div.main-content
+  outlet "main"

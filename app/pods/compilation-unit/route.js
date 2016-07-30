@@ -6,6 +6,6 @@ export default Ember.Route.extend({
 	// },
 	renderTemplate() {
 		// this.render();
-		this.render('compilation-unit', { outlet : 'sidebar' });
+		this.render('compilation-unit', { outlet : 'main' });
 	}
 });

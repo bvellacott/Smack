@@ -1,5 +1,6 @@
-button{action "newPack"} new
-ul.tree
-	each packs as |pack|
-		pack-tree-item object=pack rootName="package-explorer"
+span.outlined-button.active-btn title="new package" click="'newPack' bubbles=false" ⛀ new package
+div
+	ul.tree.root
+		each packs as |pack|
+			pack-tree-item object=pack rootName="package-explorer"
 = yield

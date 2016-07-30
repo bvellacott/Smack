@@ -17,7 +17,8 @@ export default Ember.Controller.extend({
 			var newPack = this.store.createRecord('package', { name: this.pack })
 			var ctx = this;
 			newPack.save().then(() => {
-				ctx.send("refresh");
+				ctx.renderTemplate();
+				// ctx.send("refresh");
 			});
 			// this.currentModel[name + this.idx] = {};
 			// this.idx++;

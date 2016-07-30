@@ -9,5 +9,9 @@ export default Ember.Component.extend({
       var newPack = this.get('store').createRecord('package', { name: "new", parent: null });
       this.packs.pushObject(newPack);
     },
-  }
+  },
 });
+//
+// export default Ember.Component.extend({
+//
+// });

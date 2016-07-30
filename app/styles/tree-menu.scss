@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'txt-button';
 
 %tree-menu-txt-button {
 	@extend %button;
@@ -19,10 +20,12 @@ ul.tree {
 	font-weight: bold;
 	color: $list-txt-color;
 	overflow: hidden;
+	// display:inline-block;
 	& *::selection {
 		background: rgba(0,0,0,0);
 	}
 	&>li {
+		white-space: nowrap;
 		// margin: 0.25rem;
 		padding-left: 0.75rem;
 		&>span.caret {
@@ -62,6 +65,11 @@ ul.tree {
 					background-color: $list-selected-color;
 				}
 			}
+		}
+	}
+	&.root {
+		&>li {
+			padding-left: 0rem;
 		}
 	}
 }

@@ -46,8 +46,9 @@
   "dependencies": {
     "ember-browserify": "^1.1.9",
     "ember-cli-babel": "^5.1.5",
+    "perfect-scrollbar": "^0.6.12",
+    "smack-ember-adapters": "^1.0.0",
     "smack-js-compiler": "^1.0.4",
-    "where-clause-evaluate": "^1.0.2",
-    "smack-ember-adapters": "^1.0.0"
+    "where-clause-evaluate": "^1.0.2"
   }
 }
